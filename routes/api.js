@@ -30,8 +30,6 @@ router.post("/ninjas", (req, res) => {
 
 // update a ninja in db
 router.put("/ninjas/:id", (req, res) => {
-  console.log(req.body);
-
   Ninja.findByIdAndUpdate(req.params.id, req.body)
     .then(ninja => {
       Ninja.findOne({ _id: req.params.id }).then(ninja => res.send(ninja));
